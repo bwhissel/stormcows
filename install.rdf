@@ -9,8 +9,9 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>{62227ad7-1b03-4ada-b640-8d794157cda3}</em:id>
     <em:name>StormCows</em:name>
-    <em:description>Allows two-way access between Remember The Milk and calendar events or todo items.</em:description>
-    <em:version>0.4</em:version>
+    <em:description>Allows two-way access between Remember The Milk
+                    and calendar events or todo items.</em:description>
+    <em:version>0.4.1-bret</em:version>
     <em:creator>moldybeats</em:creator>
     <em:type>2</em:type>
 
@@ -21,7 +22,7 @@
         <!-- Thunderbird -->
         <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
         <em:minVersion>38.0</em:minVersion>
-        <em:maxVersion>38.*</em:maxVersion>
+        <em:maxVersion>52.*</em:maxVersion>
       </Description>
     </em:targetApplication>
   </Description>

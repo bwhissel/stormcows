@@ -448,7 +448,7 @@ let rtmClient = {
       return ('0' + charCode.toString(16)).slice(-2);
     }
     
-    let sig = [toHexString(hash.charCodeAt(i)) for (i in hash)].join("");
+    let sig = Array.from(hash, (c, i) => toHexString(hash.charCodeAt(i))).join("");
     
     return sig;
   },

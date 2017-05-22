@@ -1,12 +1,19 @@
+This is a new fork of moldybeats/stormcows, 2017-05-22. The original
+purpose is to make the plugin compatible with recent verisons of
+Thunderbird/Lightning starting with v52.1.1/5.4.1.1.
+
 **DEPRECATED**
-After a long period of putting off improvements to StormCows, it's time for me to call it quits on this project. Unfortunately I haven't found myself using Thunderbird in the last couple years so motivation to improve the add-on has been pretty low.
+After a long period of putting off improvements to StormCows, it's
+time for me to call it quits on this project. Unfortunately I haven't
+found myself using Thunderbird in the last couple years so motivation
+to improve the add-on has been pretty low.
 
 If anyone is interested in continuing work on the add-on, fork at will.
 
-
 StormCows
 =========
-A Thunderbird/Lightning extension that allows two-way access between Remember The Milk and Lightning calendar events and todos.
+A Thunderbird/Lightning extension that allows two-way access between
+Remember The Milk and Lightning calendar events and todos.
 
 You can download the add-on and see instructions for configuring it here:
 https://addons.mozilla.org/addon/stormcows/
@@ -17,6 +24,8 @@ You'll need to install Lightning before you install this extension.
 
 The Future
 ----------
-I made this extension for personal use and, as is, it mostly works for me. I'm open to improving & expanding it if there's a demand, though.
+I made this extension for personal use and, as is, it mostly works for
+me. I'm open to improving & expanding it if there's a demand, though.
 
-There are some bugs and some wish-list features and I've added those as Issues here in GitHub. Feel free to comment or add new issues.
+There are some bugs and some wish-list features and I've added those
+as Issues here in GitHub. Feel free to comment or add new issues.
