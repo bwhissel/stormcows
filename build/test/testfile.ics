@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+PRODID:rawtext
+VERSION:2.0
+BEGIN:VTODO
+UID:1@bretwhissel.net
+SUMMARY:Big Task testing
+RELATED-TO;RELTYPE=CHILD;UID=:2@bretwhissel.net
+RELATED-TO;RELTYPE=CHILD;UID=:3@bretwhissel.net
+RELATED-TO;RELTYPE=CHILD;UID=:4@bretwhissel.net
+END:VTODO
+BEGIN:VTODO
+UID:2@bretwhissel.net
+SUMMARY:Subtask 1 of big task
+RELATED-TO;RELTYPE=PARENT;UID=:1@bretwhissel.net
+END:VTODO
+BEGIN:VTODO
+UID:3@bretwhissel.net
+SUMMARY:Subtask 2 of big task
+RELATED-TO;RELTYPE=PARENT;UID=:1@bretwhissel.net
+END:VTODO
+BEGIN:VTODO
+UID:4@bretwhissel.net
+SUMMARY:Subtask 3 of big task
+RELATED-TO;RELTYPE=PARENT;UID=:1@bretwhissel.net
+END:VTODO
+END:VCALENDAR

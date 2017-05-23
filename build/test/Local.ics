@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+BEGIN:VTODO
+CREATED:20170523T153235Z
+LAST-MODIFIED:20170523T153939Z
+DTSTAMP:20170523T153939Z
+UID:573f9e2b-df34-471b-b651-ef67b92cff07
+SUMMARY:RTM Integration
+PRIORITY:0
+DESCRIPTION:Attempt to improve Thunderbird Task Management with Remember t
+ he Milk.\n\nThings I would like to try:\n 1. Correct priority setting\n 2.
+  Link tasks with e-mail messages\n 3. Fix syncing with multiple lists\n 4.
+  RTM lists can be events or ToDos depending on their character\n 5. Abilit
+ y to create new tasks by flagging e-mail messages or tagging\n 6. Investig
+ ate sub-tasks\n 7. Gantt chart-y kind of stuff\n 8. Test with Pro version 
+ of RTM\n 9. SmartList edit/creation?\n10. Recurrences
+X-MOZ-GENERATION:11
+END:VTODO
+END:VCALENDAR
