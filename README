@@ -1,6 +1,7 @@
-This is a new fork of moldybeats/stormcows, 2017-05-22. The original
-purpose is to make the plugin compatible with recent verisons of
-Thunderbird/Lightning starting with v52.1.1/5.4.1.1.
+This is a new fork of moldybeats/stormcows, 2017-05-22. The first
+goal is to make the plugin compatible with recent verisons of
+Thunderbird/Lightning starting with v52.1.1/5.4.1.1. Then we'll
+make further enhancements.
 
 **DEPRECATED**
 After a long period of putting off improvements to StormCows, it's
