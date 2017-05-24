@@ -1,3 +1,4 @@
+// -*- mode: javascript; tab-width: 2; js-indent-level: 2; -*-
 Components.utils.import("resource://calendar/modules/calUtils.jsm");
 Components.utils.import('resource://stormcows/logger.jsm');
 
@@ -13,10 +14,10 @@ let rtmClient = {
 		return '0214bd2dffa0218f';
 	},
 	
-    get authToken() {
+  get authToken() {
 		try {
 			let prefService = Components.classes["@mozilla.org/preferences-service;1"]
-                .getService(Components.interfaces.nsIPrefBranch);
+          .getService(Components.interfaces.nsIPrefBranch);
 			let token = prefService.getCharPref('extensions.{62227ad7-1b03-4ada-b640-8d794157cda3}.authToken');
 			if (token.length == 0) {
 				return null;
@@ -29,14 +30,14 @@ let rtmClient = {
 	},
 	set authToken(aToken) {
 		let prefService = Components.classes["@mozilla.org/preferences-service;1"]
-            .getService(Components.interfaces.nsIPrefBranch);
+        .getService(Components.interfaces.nsIPrefBranch);
 		prefService.setCharPref('extensions.{62227ad7-1b03-4ada-b640-8d794157cda3}.authToken', aToken);
 	},
 	
 	mRequestQueue: [],
 	mProcessingRequest: false,
 	mTimeline: null,
-    
+  
 	results: {
 		RTM_API_OK: 0,
 		RTM_API_FAIL: 1,
@@ -50,13 +51,13 @@ let rtmClient = {
 		stormcowsLogger.debug('rtmclient.js:request()');
 		
 		let params = {},
-			metadata = {},
-			item = null,
-			idParts = [],
-			listId = null,
-			taskseriesId = null,
-			taskId = null,
-			isEvent = false;
+				metadata = {},
+				item = null,
+				idParts = [],
+				listId = null,
+				taskseriesId = null,
+				taskId = null,
+				isEvent = false;
 		
 		switch (aOperation) {
 		case 'getFrob':
@@ -198,8 +199,8 @@ let rtmClient = {
 				}
 			} else {
 				if (oldCompDate == null ||
-					newCompDate.compare(oldCompDate) != 0 ||
-					newCompDate.isDate != oldCompDate.isDate) {
+						newCompDate.compare(oldCompDate) != 0 ||
+						newCompDate.isDate != oldCompDate.isDate) {
 					params.parse = '1'
 					if (newCompDate.isDate) {
 						params.due = cal.toRFC3339(newCompDate);
@@ -323,10 +324,10 @@ let rtmClient = {
 		this.mProcessingRequest = true;
 		
 		let self = this,
-			authToken = this.authToken,
-			params = aParams,
-			status = null,
-			response = null;
+				authToken = this.authToken,
+				params = aParams,
+				status = null,
+				response = null;
 		
 		params.api_key = this.apiKey;
 		params.format = 'json';
@@ -411,7 +412,7 @@ let rtmClient = {
 		if (this.mRequestQueue.length > 0) {
 			let nextRequest = this.mRequestQueue.shift();
 			this.sendRequest(nextRequest.method, nextRequest.params, nextRequest.timeline,
-							 nextRequest.requestCallback, nextRequest.metadata);
+											 nextRequest.requestCallback, nextRequest.metadata);
 		}
 	},
 	
@@ -431,13 +432,13 @@ let rtmClient = {
 		// this MD5 hash craziness was mostly copied from here:
 		// https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsICryptoHash#Computing_the_Hash_of_a_String
 		let converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
-            .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+        .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 		converter.charset = 'UTF-8';
 		
 		let result = {};
 		let data = converter.convertToByteArray(sigStr, result);
 		var cryptohash = Components.classes["@mozilla.org/security/hash;1"]
-            .createInstance(Components.interfaces.nsICryptoHash);
+        .createInstance(Components.interfaces.nsICryptoHash);
 		cryptohash.init(cryptohash.MD5);
 		cryptohash.update(data, data.length);
 		let hash = cryptohash.finish(false);
@@ -477,7 +478,7 @@ let rtmClient = {
 		stormcowsLogger.debug('rtmclient.js:getFrob_response()');
 		
 		let frob,
-			authUrl;
+				authUrl;
 		
 		try {
 			frob = JSON.parse(aResult).rsp.frob;
@@ -520,7 +521,7 @@ let rtmClient = {
 		stormcowsLogger.debug('rtmclient.js:getLists_response()');
 		
 		let callback = aMetadata.callback,
-			lists = [];
+				lists = [];
 		try {
 			let rspLists = JSON.parse(aResult).rsp.lists.list;
 			for (let i=0; i<rspLists.length; i++) {
@@ -542,9 +543,9 @@ let rtmClient = {
 		stormcowsLogger.debug('rtmclient.js:addTask_response()');
 		
 		let callback = aMetadata.calCallback,
-			listener = aMetadata.calListener,
-			item = aMetadata.item,
-			status = null;
+				listener = aMetadata.calListener,
+				item = aMetadata.item,
+				status = null;
 		
 		try {
 			let rsp = JSON.parse(aResult).rsp;
@@ -574,10 +575,10 @@ let rtmClient = {
 		stormcowsLogger.debug('rtmclient.js:modifyTask_response()');
 		
 		let callback = aMetadata.calCallback,
-			listener = aMetadata.calListener,
-			newItem = aMetadata.newItem,
-			oldItem = aMetadata.oldItem,
-			status = null;
+				listener = aMetadata.calListener,
+				newItem = aMetadata.newItem,
+				oldItem = aMetadata.oldItem,
+				status = null;
 		
 		try {
 			let rsp = JSON.parse(aResult).rsp;
@@ -629,12 +630,12 @@ let rtmClient = {
 		stormcowsLogger.debug('rtmclient.js:getTasks_response()');
 		
 		let callback = aMetadata.calCallback,
-			listener = aMetadata.calListener,
-			calendar = aMetadata.calendar,
-			items = [],
-			itemType = aMetadata.itemType,
-			tzService = cal.getTimezoneService(),
-			status = null;
+				listener = aMetadata.calListener,
+				calendar = aMetadata.calendar,
+				items = [],
+				itemType = aMetadata.itemType,
+				tzService = cal.getTimezoneService(),
+				status = null;
 		
 		try {
 			let rsp = JSON.parse(aResult).rsp;
@@ -716,9 +717,9 @@ let rtmClient = {
 							} else if (priority == '1') {
 								item.priority = 1;
 							} else if (priority == '2') {
-								item.priority = 2;
+								item.priority = 5;
 							} else if (priority == '3') {
-								item.priority = 3;
+								item.priority = 9;
 							}
 							
 							item.title = name;
@@ -735,7 +736,7 @@ let rtmClient = {
 		} catch (e) {
 			status = this.results.RTM_API_FAIL;
 			stormcowsLogger.debug('rtmclient.js:getTasks_response()',
-								  'Got an unparseable response from the API');
+														'Got an unparseable response from the API');
 			stormcowsLogger.debug(null, aResult);
 		}
 		

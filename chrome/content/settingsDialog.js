@@ -1,8 +1,8 @@
+// -*- mode: javascript; tab-width: 2; js-indent-level: 2; -*-
 Components.utils.import("resource://calendar/modules/calUtils.jsm");
 
 Components.utils.import('resource://stormcows/rtmclient.jsm');
 Components.utils.import('resource://stormcows/logger.jsm');
-
 
 function StormCowsConfig() {
 }
@@ -103,13 +103,15 @@ StormCowsConfig.prototype = {
     stormcowsLogger.debug('settingsDialog.js:doStartAuth_callback()');
     
     if (!aFrob || !aAuthUrl) {
-      stormcowsLogger.debug('settingsDialog.js:doStartAuth_callback()', 'API request resulted in an error');
+      stormcowsLogger.debug('settingsDialog.js:doStartAuth_callback()',
+														'API request resulted in an error');
       this.mBtnStartAuth.disabled = false;
       return;
     }
     
     this.mTempFrob = aFrob;
-    stormcowsLogger.debug('settingsDialog.js:doStartAuth_callback()', 'AuthURL: ' + aAuthUrl.spec);
+    stormcowsLogger.debug('settingsDialog.js:doStartAuth_callback()',
+													'AuthURL: ' + aAuthUrl.spec);
     
     // The code below for opening a page in a browser content tab came from here:
     // https://developer.mozilla.org/en-US/docs/Thunderbird/Content_Tabs
@@ -117,14 +119,14 @@ StormCowsConfig.prototype = {
     if (!tabmail) {
       // Try opening new tabs in an existing 3pane window
       let mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-                              .getService(Components.interfaces.nsIWindowMediator)
-                              .getMostRecentWindow("mail:3pane");
+          .getService(Components.interfaces.nsIWindowMediator)
+          .getMostRecentWindow("mail:3pane");
       if (mail3PaneWindow) {
         tabmail = mail3PaneWindow.document.getElementById("tabmail");
         mail3PaneWindow.focus();
       }
     }
- 
+		
     if (tabmail)
       tabmail.openTab("contentTab", { contentPage: aAuthUrl.spec });
     else
@@ -155,7 +157,8 @@ StormCowsConfig.prototype = {
     stormcowsLogger.debug('settingsDialog.js:doFinishAuth_callback()');
     
     if (!aAuthToken) {
-      stormcowsLogger.debug('settingsDialog.js:doFinishAuth_callback()', 'API request resulted in an error');
+      stormcowsLogger.debug('settingsDialog.js:doFinishAuth_callback()',
+														'API request resulted in an error');
       this.mBtnStartAuth.disabled = false;
       return;
     }

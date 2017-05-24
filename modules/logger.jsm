@@ -1,5 +1,6 @@
-Components.utils.import("resource://calendar/modules/calUtils.jsm");
+// -*- mode: javascript; tab-width: 2; js-indent-level: 2; -*-
 
+Components.utils.import("resource://calendar/modules/calUtils.jsm");
 
 EXPORTED_SYMBOLS = ['stormcowsLogger'];
 
@@ -30,6 +31,3 @@ let stormcowsLogger = {
     }
   }
 };
-
-      
-    
