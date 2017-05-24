@@ -24,6 +24,7 @@ function calStormCows() {
   } catch (e) {
 		debug = false;
   }
+	debug = true; // BDW: added
 
   stormcowsLogger.debugMode = debug;
 }

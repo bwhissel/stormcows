@@ -6,13 +6,13 @@ EXPORTED_SYMBOLS = ['stormcowsLogger'];
 
 let stormcowsLogger = {
   
-  mDebugMode: false,
+  mDebugMode: true,
   
   get debugMode() {
     return this.mDebugMode;
   },
   set debugMode(aValue) {
-    this.mDebugMode = aValue;
+    // this.mDebugMode = aValue;
   },
   
   debug: function(src, msg) {

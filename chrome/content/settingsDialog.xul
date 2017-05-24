@@ -9,7 +9,7 @@
         title="StormCows Configuration"
         buttons="accept"
         buttonlabelaccept="Close"
-        ondialogaccept="return scConfig.doOK()"
+        ondialogaccept="return true;"
         onload="scConfig.doLoad()"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
         

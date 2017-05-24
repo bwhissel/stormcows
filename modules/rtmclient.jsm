@@ -348,7 +348,8 @@ let rtmClient = {
 					status = self.results.HTTP_REQUEST_OK;
 					response = cal.convertByteArray(aResult, aResultLength);
 				} else {
-					stormcowsLogger.debug('rtmclient.js:sendRequest()', 'API request failed (HTTP status: ' + request.responseStatus + ')');
+					stormcowsLogger.debug('rtmclient.js:sendRequest()',
+																'API request failed (HTTP status: ' + request.responseStatus + ')');
 					status = self.results.HTTP_REQUEST_FAIL;
 					response = null;
 				}
@@ -483,7 +484,8 @@ let rtmClient = {
 		try {
 			frob = JSON.parse(aResult).rsp.frob;
 		} catch (e) {
-			stormcowsLogger.debug('rtmclient.js:getFrob_response()', 'Got an unparseable response from the API');
+			stormcowsLogger.debug('rtmclient.js:getFrob_response()',
+														'Got an unparseable response from the API');
 			frob = null;
 		}
 		let callback = aMetadata.callback;
