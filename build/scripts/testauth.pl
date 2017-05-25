@@ -13,13 +13,13 @@ sub makeauthstr {
     my %parms = %$href;
 
 # StormCows keys, for comparison testing
-#    my $rtmapikey = 'e26a18535958e43f44f175f3d4a47a50';
-#    my $rtmsecret = '0214bd2dffa0218f';
+    my $rtmapikey = 'e26a18535958e43f44f175f3d4a47a50';
+    my $rtmsecret = '0214bd2dffa0218f';
 
-    my $rtmapikey = '32fd51006d3c7903be7106162ed2d1d6';
-    my $rtmsecret = '02f2e7b68509f9aa';
+#    my $rtmapikey = '32fd51006d3c7903be7106162ed2d1d6';
+#    my $rtmsecret = '02f2e7b68509f9aa';
 
-    $parms{'perms'} = 'delete';
+#    $parms{'perms'} = 'delete';
     $parms{'format'} = 'json';
     $parms{'api_key'} = "$rtmapikey";
 
@@ -104,7 +104,8 @@ if (exists($jsonresp->{'rsp'}->{'frob'})) {
     exit 1;
 }
 
-print "Login:\n$authserver/services/auth/\?" . makeauthstr({'frob' => $frob}) . "\n";
+print "Login:\n$authserver/services/auth/\?" . makeauthstr({'frob' => $frob,
+							    'perms' => 'delete'}) . "\n";
 
 print "\nPress <ENTER> once authorization is complete...\n";
 my $waitent = <STDIN>;
@@ -116,8 +117,10 @@ my $username = '';
 my $fullname = '';
 
 print "Connecting: $apiserver/services/rest/\?" . 
-    makeauthstr({'method' => 'rtm.auth.getToken', 'frob' => $frob}) . "\n";
+    makeauthstr({'method' => 'rtm.auth.getToken',
+		 'frob' => $frob, 'perms' => 'delete'}) . "\n";
 $apclient->GET("/services/rest/\?" . makeauthstr({'method' => 'rtm.auth.getToken',
+						  'perms' => 'delete',
 						  'frob' => $frob}));
 $jsonresp = check_return_error($apclient);
 if (exists($jsonresp->{'rsp'}->{'auth'})) {
