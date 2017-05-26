@@ -13,16 +13,20 @@ sub makeauthstr {
     my %parms = %$href;
 
 # StormCows keys, for comparison testing
-    my $rtmapikey = 'e26a18535958e43f44f175f3d4a47a50';
-    my $rtmsecret = '0214bd2dffa0218f';
+#    my $rtmapikey = 'e26a18535958e43f44f175f3d4a47a50';
+#    my $rtmsecret = '0214bd2dffa0218f';
 
-#    my $rtmapikey = '32fd51006d3c7903be7106162ed2d1d6';
-#    my $rtmsecret = '02f2e7b68509f9aa';
+    my $rtmapikey = '32fd51006d3c7903be7106162ed2d1d6';
+    my $rtmsecret = '02f2e7b68509f9aa';
 
-#    $parms{'perms'} = 'delete';
-    $parms{'format'} = 'json';
+    $parms{'perms'} = 'delete';
     $parms{'api_key'} = "$rtmapikey";
-
+    if (exists($parms{'format'}) && ($parms{'format'} eq 'xml')) {
+	delete $parms{'format'};
+    } else {
+	$parms{'format'} = 'json';
+    }
+	
     my $authstr = "$rtmsecret";
     my $parmstr = '';
 
@@ -105,7 +109,9 @@ if (exists($jsonresp->{'rsp'}->{'frob'})) {
 }
 
 print "Login:\n$authserver/services/auth/\?" . makeauthstr({'frob' => $frob,
-							    'perms' => 'delete'}) . "\n";
+							    'perms' => 'delete',
+							    'format' => 'xml',
+							   }) . "\n";
 
 print "\nPress <ENTER> once authorization is complete...\n";
 my $waitent = <STDIN>;
