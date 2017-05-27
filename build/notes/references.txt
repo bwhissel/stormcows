@@ -1,0 +1,7 @@
+RFCs:
+  iCalendar: rfc 5545   Calendar specs
+  iTIP: rfc 5546        Protocol for distributing ical events
+  iMIP: rfc 6047        Protocol for encapsulating messages in e-mail
+
+MIME security:
+  rfc 5750, 5751, 1847

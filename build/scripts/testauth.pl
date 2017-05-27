@@ -16,12 +16,13 @@ sub makeauthstr {
 #    my $rtmapikey = 'e26a18535958e43f44f175f3d4a47a50';
 #    my $rtmsecret = '0214bd2dffa0218f';
 
+# Bret Whissel API keys
     my $rtmapikey = '32fd51006d3c7903be7106162ed2d1d6';
     my $rtmsecret = '02f2e7b68509f9aa';
 
     $parms{'perms'} = 'delete';
     $parms{'api_key'} = "$rtmapikey";
-    if (exists($parms{'format'}) && ($parms{'format'} eq 'xml')) {
+    if (exists($parms{'format'}) && ($parms{'format'} ne 'json')) {
 	delete $parms{'format'};
     } else {
 	$parms{'format'} = 'json';
@@ -83,9 +84,9 @@ my $authserver = 'https://www.rememberthemilk.com';
 my $apiserver = 'https://api.rememberthemilk.com';
 my $timeout = 30;
 
-my $apclient;
-my $authclient;
-my $jsonresp;
+my $apclient = '';
+my $authclient = '';
+my $jsonresp = '';
 my $frob = '';
 
 $apclient = REST::Client->new({
@@ -96,7 +97,6 @@ $authclient = REST::Client->new({
     host    => $authserver,
     timeout => $timeout });
 
-print "Connecting: $apiserver/services/rest/\?" . makeauthstr({'method' => 'rtm.auth.getFrob'}) . "\n";
 $apclient->GET("/services/rest/\?" . makeauthstr({'method' => 'rtm.auth.getFrob'}));
 $jsonresp = check_return_error($apclient);
 
@@ -108,13 +108,18 @@ if (exists($jsonresp->{'rsp'}->{'frob'})) {
     exit 1;
 }
 
-print "Login:\n$authserver/services/auth/\?" . makeauthstr({'frob' => $frob,
-							    'perms' => 'delete',
-							    'format' => 'xml',
-							   }) . "\n";
+print "Opening browser for login...\n";
+system("xdg-open", "$authserver/services/auth/\?" .
+    makeauthstr({'frob' => $frob,
+		 'perms' => 'delete',
+		 'format' => 'xml' }));
 
 print "\nPress <ENTER> once authorization is complete...\n";
 my $waitent = <STDIN>;
+$apclient->GET("/services/rest/\?" .
+    makeauthstr({'method' => 'rtm.auth.getToken',
+		 'perms' => 'delete',
+		 'frob' => $frob}));
 
 my $token = '';
 my $perms = '';
@@ -122,12 +127,6 @@ my $userid = '';
 my $username = '';
 my $fullname = '';
 
-print "Connecting: $apiserver/services/rest/\?" . 
-    makeauthstr({'method' => 'rtm.auth.getToken',
-		 'frob' => $frob, 'perms' => 'delete'}) . "\n";
-$apclient->GET("/services/rest/\?" . makeauthstr({'method' => 'rtm.auth.getToken',
-						  'perms' => 'delete',
-						  'frob' => $frob}));
 $jsonresp = check_return_error($apclient);
 if (exists($jsonresp->{'rsp'}->{'auth'})) {
     $token = $jsonresp->{'rsp'}->{'auth'}->{'token'};

@@ -1,0 +1,54 @@
+There are two tasks to accomplish what I want:
+
+1. Improve task management in Thunderbird
+2. Better integration with Remember the Milk
+
+Thunderbird Task Management
+
+*Infrastructure
+-- Sub-tasks!
+-- Ordering of tasks
+-- Task dependencies
+   -- Task B must wait until Task A is completed
+      before work can start
+   -- All child tasks of a task must be completed
+      before a parent task can be completed
+   -- More?
+-- Task tags
+-- Task locations
+-- Better task prorities, aging, occasional feeding
+-- Convert tasks to e-mail messages
+   -- delegation
+   -- assignment
+-- Convert e-mail messages to tasks
+   -- accept delegation or assignment
+-- Link tasks to e-mail messages and/or messages to tasks
+-- Sort/filter based on tag, location, priority, age, sequence,
+   natural order, title/summary, completion %, due dates,
+   today, tomorrow, this week
+-- Provide sufficient back-end to support Google and RTM tasks
+
+*UI
+-- Task coloration (based on calendar? priority? )
+-- Gantt chart-y stuff
+-- Drag-n-Drop sequencing
+-- Drag-n-Drop e-mail conversion
+
+Integration with Remember the Milk
+
+-- Priority mapping
+-- Fix syncing with multiple lists
+-- RTM lists can be events or ToDos depending on their character
+-- Investigate sub-tasks
+-- Test with Pro version of RTM
+-- SmartList edit/creation?
+-- Verify recurrences all work correctly
+-- Rate limiting
+
+Things to be done:
+
+1. Read RFCs on icalendar, iTIP, iMIP
+2. Study ical-format output of Google tasks and RTM
+3. Dig into current Lightning infrastructure for iCal support
+   -- https://github.com/mozilla-comm/ical.js
+4. Install Javascript development environments
