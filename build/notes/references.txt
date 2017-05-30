@@ -2,6 +2,11 @@ RFCs:
   iCalendar: rfc 5545   Calendar specs
   iTIP: rfc 5546        Protocol for distributing ical events
   iMIP: rfc 6047        Protocol for encapsulating messages in e-mail
+  rfc 7529              Extensions for non-Gregorian calendars
+  rfc 6638              CalDAV/iCal scheduling extensions
 
 MIME security:
   rfc 5750, 5751, 1847
+
+Learn iCal/jCal semantics
+

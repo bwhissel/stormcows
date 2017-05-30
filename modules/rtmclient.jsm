@@ -419,7 +419,7 @@ let rtmClient = {
 	
 	getRequestSignature: function(aParams) {
 		let keys = [];
-		for (param in aParams) {
+		for (var param in aParams) {
 			keys.push(param);
 		}
 		keys.sort();
@@ -511,7 +511,8 @@ let rtmClient = {
 		try {
 			token = JSON.parse(aResult).rsp.auth.token;
 		} catch (e) {
-			stormcowsLogger.debug('rtmclient.js:getToken_response()', 'Got an unparseable response from the API');
+			stormcowsLogger.debug('rtmclient.js:getToken_response()',
+														'Got an unparseable response from the API');
 			token = null;
 		}
 		let callback = aMetadata.callback;
@@ -534,7 +535,8 @@ let rtmClient = {
 				lists.push(list);
 			}
 		} catch (e) {
-			stormcowsLogger.debug('rtmclient.js:getLists_response()', 'Got an unparseable response from the API');
+			stormcowsLogger.debug('rtmclient.js:getLists_response()',
+														'Got an unparseable response from the API');
 			lists = null;
 		}
 		
@@ -554,7 +556,8 @@ let rtmClient = {
 			
 			if (rsp.stat == 'fail') {
 				status = this.results.RTM_API_FAIL;
-				stormcowsLogger.debug('rtmclient.js:addTask_response()', 'Got an error from the API');
+				stormcowsLogger.debug('rtmclient.js:addTask_response()',
+															'Got an error from the API');
 				stormcowsLogger.debug(null, aResult);
 			} else {
 				status = this.results.RTM_API_OK;
@@ -566,7 +569,8 @@ let rtmClient = {
 			}
 		} catch (e) {
 			status = this.results.RTM_API_FAIL;
-			stormcowsLogger.debug('rtmclient.js:addTask_response()', 'Got an unparseable response from the API');
+			stormcowsLogger.debug('rtmclient.js:addTask_response()',
+														'Got an unparseable response from the API');
 			stormcowsLogger.debug(null, aResult);
 		}
 		
@@ -587,14 +591,16 @@ let rtmClient = {
 			
 			if (rsp.stat == 'fail') {
 				status = this.results.RTM_API_FAIL;
-				stormcowsLogger.debug('rtmclient.js:modifyTask_response()', 'Got an error from the API');
+				stormcowsLogger.debug('rtmclient.js:modifyTask_response()',
+															'Got an error from the API');
 				stormcowsLogger.debug(null, aResult);
 			} else {
 				status = this.results.RTM_API_OK;
 			}
 		} catch (e) {
 			status = this.results.RTM_API_FAIL;
-			stormcowsLogger.debug('rtmclient.js:modifyTask_response()', 'Got an unparseable response from the API');
+			stormcowsLogger.debug('rtmclient.js:modifyTask_response()',
+														'Got an unparseable response from the API');
 			stormcowsLogger.debug(null, aResult);
 		}
 		
@@ -614,14 +620,16 @@ let rtmClient = {
 			
 			if (rsp.stat == 'fail') {
 				status = this.results.RTM_API_FAIL;
-				stormcowsLogger.debug('rtmclient.js:deleteTask_response()', 'Got an error from the API');
+				stormcowsLogger.debug('rtmclient.js:deleteTask_response()',
+															'Got an error from the API');
 				stormcowsLogger.debug(null, aResult);
 			} else {
 				status = this.results.RTM_API_OK;
 			}
 		} catch (e) {
 			status = this.results.RTM_API_FAIL;
-			stormcowsLogger.debug('rtmclient.js:deleteTask_response()', 'Got an unparseable response from the API');
+			stormcowsLogger.debug('rtmclient.js:deleteTask_response()',
+														'Got an unparseable response from the API');
 			stormcowsLogger.debug(null, aResult);
 		}
 		
@@ -644,7 +652,8 @@ let rtmClient = {
 			
 			if (rsp.stat == 'fail') {
 				status = this.results.RTM_API_FAIL;
-				stormcowsLogger.debug('rtmclient.js:getTasks_response()', 'Got an error from the API');
+				stormcowsLogger.debug('rtmclient.js:getTasks_response()',
+															'Got an error from the API');
 				stormcowsLogger.debug(null, aResult);
 			} else {
 				let lists = this.toArray(rsp.tasks.list);
@@ -681,7 +690,6 @@ let rtmClient = {
 								
 								item.startDate = startDate;
 								item.endDate = endDate;
-								
 							} else {
 								item = cal.createTodo();
 								if (!due) {
@@ -724,6 +732,41 @@ let rtmClient = {
 								item.priority = 9;
 							}
 							
+							let tags = this.toArray(series[j].tags);
+							if (tags.length > 0) {
+								let taglist = this.toArray(tags[0].tag);
+								item.setCategories(taglist.length, taglist);
+							}
+
+							/*
+							let participants = this.toArray(series[j].participants);
+							if (participants.length > 0) {
+								description += "Participants:\n";
+								for (var tcnt = 0; tcnt < participants.length; tcnt++) {
+									for (var titem in participants[tcnt]) {
+										description += "  " + titem + "\n";
+									}
+								}
+								description += "\n";
+							}
+							*/
+
+							let notes = this.toArray(series[j].notes);
+							if (notes.length > 0) {
+								let description = '';
+								let notelist = this.toArray(notes[0].note);
+								for (var tcnt = 0; tcnt < notelist.length; tcnt++) {
+									description += '<note id="' + notelist[tcnt].id +
+										'" title="' +	notelist[tcnt].title +
+										'" created="' + notelist[tcnt].created +
+										'" modified="' + notelist[tcnt].modified + '">\n';
+									description += notelist[tcnt].$t + "\n";
+									description += '</note>\n';
+								}
+								description += "\n";
+								item.setProperty('description', description);
+							}
+
 							item.title = name;
 							item.calendar = calendar;
 							item.id = this.makeRtmId(listId, taskseriesId, taskId);

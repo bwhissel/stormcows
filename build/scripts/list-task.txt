@@ -1,0 +1,621 @@
+authstr=02f2e7b68509f9aaapi_key32fd51006d3c7903be7106162ed2d1d6auth_token1020d99ad95af7fbede0b62c8d547fb35a0756e7formatjsonmethodrtm.lists.getListpermsdelete;
+parmstr=api_key=32fd51006d3c7903be7106162ed2d1d6&auth_token=1020d99ad95af7fbede0b62c8d547fb35a0756e7&format=json&method=rtm.lists.getList&perms=delete&api_sig=23192acc3f02082e4331c1ec3c700d8b
+
+{
+   "rsp" : {
+      "lists" : {
+         "list" : [
+            {
+               "smart" : "0",
+               "position" : "-1",
+               "id" : "36622569",
+               "deleted" : "0",
+               "sort_order" : "0",
+               "locked" : "1",
+               "name" : "Inbox",
+               "archived" : "0"
+            },
+            {
+               "archived" : "0",
+               "name" : "Home Recurring",
+               "locked" : "0",
+               "sort_order" : "0",
+               "deleted" : "0",
+               "id" : "36622570",
+               "position" : "0",
+               "smart" : "0"
+            },
+            {
+               "position" : "1",
+               "id" : "36622573",
+               "deleted" : "0",
+               "smart" : "0",
+               "archived" : "0",
+               "sort_order" : "0",
+               "locked" : "1",
+               "name" : "Sent"
+            },
+            {
+               "archived" : "0",
+               "name" : "All Tasks",
+               "locked" : "0",
+               "filter" : "",
+               "sort_order" : "0",
+               "deleted" : "0",
+               "position" : "0",
+               "id" : "36622574",
+               "smart" : "1"
+            },
+            {
+               "sort_order" : "0",
+               "locked" : "0",
+               "name" : "Party Preparation",
+               "archived" : "1",
+               "smart" : "0",
+               "position" : "0",
+               "id" : "36627060",
+               "deleted" : "0"
+            },
+            {
+               "archived" : "0",
+               "name" : "Projects",
+               "locked" : "0",
+               "sort_order" : "0",
+               "deleted" : "0",
+               "id" : "36627196",
+               "position" : "0",
+               "smart" : "0"
+            },
+            {
+               "smart" : "0",
+               "deleted" : "0",
+               "position" : "0",
+               "id" : "40110941",
+               "name" : "ITS",
+               "locked" : "0",
+               "sort_order" : "0",
+               "archived" : "0"
+            },
+            {
+               "name" : "Acquisitions",
+               "locked" : "0",
+               "sort_order" : "0",
+               "archived" : "0",
+               "smart" : "0",
+               "deleted" : "0",
+               "id" : "40111064",
+               "position" : "0"
+            },
+            {
+               "smart" : "1",
+               "deleted" : "0",
+               "position" : "0",
+               "id" : "40113875",
+               "name" : "At Work",
+               "locked" : "0",
+               "filter" : "(list:ITS or location:\"FSU ITS\")",
+               "sort_order" : "0",
+               "archived" : "0"
+            },
+            {
+               "locked" : "0",
+               "sort_order" : "0",
+               "name" : "Visits",
+               "archived" : "0",
+               "smart" : "0",
+               "id" : "41409447",
+               "position" : "0",
+               "deleted" : "0"
+            }
+         ]
+      },
+      "stat" : "ok"
+   }
+}
+authstr=02f2e7b68509f9aaapi_key32fd51006d3c7903be7106162ed2d1d6auth_token1020d99ad95af7fbede0b62c8d547fb35a0756e7filterstatus:incompleteformatjsonlist_id36622570methodrtm.tasks.getListpermsdelete;
+parmstr=api_key=32fd51006d3c7903be7106162ed2d1d6&auth_token=1020d99ad95af7fbede0b62c8d547fb35a0756e7&filter=status:incomplete&format=json&list_id=36622570&method=rtm.tasks.getList&perms=delete&api_sig=63220077c1a09e2a2b106324b73b0a05
+
+{
+   "rsp" : {
+      "tasks" : {
+         "rev" : "cng981h0y8mn22sofca6pw3t0vqqwam",
+         "list" : [
+            {
+               "taskseries" : [
+                  {
+                     "notes" : [],
+                     "task" : {
+                        "postponed" : "0",
+                        "id" : "547586464",
+                        "added" : "2017-04-25T15:30:03Z",
+                        "estimate" : "1 hour",
+                        "has_due_time" : "1",
+                        "deleted" : "",
+                        "priority" : "N",
+                        "completed" : "",
+                        "due" : "2017-06-13T15:30:00Z"
+                     },
+                     "location_id" : "1148779",
+                     "name" : "Haircut",
+                     "modified" : "2017-05-21T20:31:44Z",
+                     "source" : "js",
+                     "id" : "232344507",
+                     "participants" : [],
+                     "url" : "",
+                     "rrule" : {
+                        "$t" : "FREQ=WEEKLY;INTERVAL=6;WKST=SU",
+                        "every" : "0"
+                     },
+                     "created" : "2014-06-06T16:22:49Z",
+                     "tags" : []
+                  },
+                  {
+                     "tags" : {
+                        "tag" : [
+                           "money",
+                           "costco"
+                        ]
+                     },
+                     "created" : "2014-07-15T15:47:15Z",
+                     "rrule" : {
+                        "every" : "1",
+                        "$t" : "FREQ=WEEKLY;INTERVAL=1"
+                     },
+                     "id" : "235278219",
+                     "participants" : [],
+                     "url" : "",
+                     "source" : "js",
+                     "name" : "Vacuum living room",
+                     "modified" : "2017-05-29T17:20:21Z",
+                     "notes" : {
+                        "note" : [
+                           {
+                              "created" : "2017-05-29T17:20:21Z",
+                              "modified" : "2017-05-29T17:20:21Z",
+                              "title" : "",
+                              "id" : "59299361",
+                              "$t" : "Test two with a second note"
+                           },
+                           {
+                              "id" : "59289613",
+                              "title" : "",
+                              "$t" : "This is test two.",
+                              "created" : "2017-05-29T01:07:18Z",
+                              "modified" : "2017-05-29T01:07:18Z"
+                           }
+                        ]
+                     },
+                     "task" : [
+                        {
+                           "postponed" : "0",
+                           "has_due_time" : "0",
+                           "deleted" : "",
+                           "estimate" : "15 minutes",
+                           "added" : "2017-05-20T04:03:45Z",
+                           "id" : "551281409",
+                           "due" : "2017-05-27T04:00:00Z",
+                           "priority" : "N",
+                           "completed" : ""
+                        },
+                        {
+                           "priority" : "N",
+                           "completed" : "",
+                           "due" : "2017-06-03T04:00:00Z",
+                           "id" : "552323340",
+                           "added" : "2017-05-27T04:02:04Z",
+                           "estimate" : "15 minutes",
+                           "deleted" : "",
+                           "has_due_time" : "0",
+                           "postponed" : "0"
+                        }
+                     ],
+                     "location_id" : "1098376"
+                  },
+                  {
+                     "tags" : [],
+                     "created" : "2014-06-16T17:19:17Z",
+                     "rrule" : {
+                        "every" : "1",
+                        "$t" : "FREQ=YEARLY;INTERVAL=1"
+                     },
+                     "source" : "js",
+                     "url" : "",
+                     "participants" : [],
+                     "id" : "233080796",
+                     "name" : "Income tax and quarterly payment due",
+                     "modified" : "2017-05-19T19:50:54Z",
+                     "notes" : [],
+                     "task" : {
+                        "postponed" : "0",
+                        "deleted" : "",
+                        "has_due_time" : "0",
+                        "estimate" : "",
+                        "added" : "2017-04-15T04:02:17Z",
+                        "id" : "546125104",
+                        "due" : "2018-04-15T04:00:00Z",
+                        "completed" : "",
+                        "priority" : "N"
+                     },
+                     "location_id" : ""
+                  },
+                  {
+                     "tags" : [],
+                     "created" : "2016-01-06T16:33:28Z",
+                     "rrule" : {
+                        "every" : "1",
+                        "$t" : "FREQ=MONTHLY;INTERVAL=4;BYDAY=1SA;WKST=SU"
+                     },
+                     "source" : "js",
+                     "participants" : [],
+                     "id" : "277461873",
+                     "url" : "",
+                     "name" : "Flip mattress, wash pillows, wash mattress pad",
+                     "modified" : "2017-05-21T16:36:21Z",
+                     "notes" : [],
+                     "task" : {
+                        "deleted" : "",
+                        "has_due_time" : "0",
+                        "estimate" : "",
+                        "added" : "2017-05-06T04:02:01Z",
+                        "id" : "549177471",
+                        "postponed" : "0",
+                        "due" : "2017-09-02T04:00:00Z",
+                        "completed" : "",
+                        "priority" : "N"
+                     },
+                     "location_id" : ""
+                  },
+                  {
+                     "name" : "Mop floors",
+                     "modified" : "2017-05-20T04:03:45Z",
+                     "location_id" : "",
+                     "task" : [
+                        {
+                           "estimate" : "30 minutes",
+                           "added" : "2017-04-15T04:02:17Z",
+                           "id" : "546125105",
+                           "has_due_time" : "0",
+                           "deleted" : "",
+                           "postponed" : "0",
+                           "priority" : "N",
+                           "completed" : "",
+                           "due" : "2017-05-20T04:00:00Z"
+                        },
+                        {
+                           "postponed" : "0",
+                           "id" : "551281410",
+                           "estimate" : "30 minutes",
+                           "added" : "2017-05-20T04:03:45Z",
+                           "deleted" : "",
+                           "has_due_time" : "0",
+                           "priority" : "N",
+                           "completed" : "",
+                           "due" : "2017-06-17T04:00:00Z"
+                        }
+                     ],
+                     "notes" : [],
+                     "tags" : [],
+                     "created" : "2014-06-06T15:04:17Z",
+                     "rrule" : {
+                        "$t" : "FREQ=MONTHLY;INTERVAL=1;BYDAY=3SA",
+                        "every" : "1"
+                     },
+                     "participants" : [],
+                     "id" : "232338650",
+                     "url" : "",
+                     "source" : "js"
+                  },
+                  {
+                     "source" : "js",
+                     "participants" : [],
+                     "url" : "",
+                     "id" : "233080634",
+                     "rrule" : {
+                        "$t" : "FREQ=YEARLY;INTERVAL=1",
+                        "every" : "1"
+                     },
+                     "created" : "2014-06-16T17:17:38Z",
+                     "tags" : [],
+                     "location_id" : "",
+                     "task" : {
+                        "due" : "2017-09-15T04:00:00Z",
+                        "priority" : "N",
+                        "completed" : "",
+                        "postponed" : "0",
+                        "deleted" : "",
+                        "has_due_time" : "0",
+                        "id" : "515513767",
+                        "added" : "2016-09-15T04:12:12Z",
+                        "estimate" : ""
+                     },
+                     "notes" : [],
+                     "modified" : "2016-09-18T02:59:51Z",
+                     "name" : "IRS quarterly payment due"
+                  },
+                  {
+                     "rrule" : {
+                        "every" : "1",
+                        "$t" : "FREQ=WEEKLY;INTERVAL=1"
+                     },
+                     "url" : "",
+                     "participants" : [],
+                     "id" : "234743813",
+                     "source" : "js",
+                     "tags" : [],
+                     "created" : "2014-07-08T14:59:09Z",
+                     "name" : "Wash sheets",
+                     "modified" : "2017-05-28T23:25:47Z",
+                     "notes" : [],
+                     "task" : {
+                        "postponed" : "0",
+                        "id" : "552444067",
+                        "added" : "2017-05-28T04:07:24Z",
+                        "estimate" : "",
+                        "has_due_time" : "0",
+                        "deleted" : "",
+                        "priority" : "N",
+                        "completed" : "",
+                        "due" : "2017-06-04T04:00:00Z"
+                     },
+                     "location_id" : ""
+                  },
+                  {
+                     "modified" : "2017-05-21T16:37:19Z",
+                     "name" : "Clean bathtub and vanity",
+                     "notes" : [],
+                     "task" : {
+                        "id" : "551393312",
+                        "estimate" : "PT45M",
+                        "added" : "2017-05-21T04:05:19Z",
+                        "has_due_time" : "0",
+                        "deleted" : "",
+                        "postponed" : "0",
+                        "priority" : "N",
+                        "completed" : "",
+                        "due" : "2017-06-11T04:00:00Z"
+                     },
+                     "location_id" : "",
+                     "rrule" : {
+                        "$t" : "FREQ=WEEKLY;INTERVAL=3",
+                        "every" : "1"
+                     },
+                     "source" : "js",
+                     "participants" : [],
+                     "id" : "235278513",
+                     "url" : "",
+                     "tags" : [],
+                     "created" : "2014-07-15T15:51:20Z"
+                  },
+                  {
+                     "tags" : [],
+                     "created" : "2014-06-06T16:42:10Z",
+                     "rrule" : {
+                        "every" : "1",
+                        "$t" : "FREQ=WEEKLY;INTERVAL=2"
+                     },
+                     "url" : "",
+                     "participants" : [],
+                     "id" : "232345617",
+                     "source" : "js",
+                     "name" : "Call mom and dad",
+                     "modified" : "2017-05-28T23:25:47Z",
+                     "location_id" : "",
+                     "task" : {
+                        "id" : "552444068",
+                        "added" : "2017-05-28T04:07:24Z",
+                        "estimate" : "30 minutes",
+                        "deleted" : "",
+                        "has_due_time" : "0",
+                        "postponed" : "0",
+                        "priority" : "N",
+                        "completed" : "",
+                        "due" : "2017-06-11T04:00:00Z"
+                     },
+                     "notes" : []
+                  },
+                  {
+                     "modified" : "2017-05-19T19:50:54Z",
+                     "name" : "IRS quarterly payment due",
+                     "task" : {
+                        "due" : "2018-01-15T05:00:00Z",
+                        "priority" : "N",
+                        "completed" : "",
+                        "deleted" : "",
+                        "has_due_time" : "0",
+                        "id" : "534021186",
+                        "added" : "2017-01-21T02:30:30Z",
+                        "estimate" : "",
+                        "postponed" : "0"
+                     },
+                     "location_id" : "",
+                     "notes" : [],
+                     "rrule" : {
+                        "$t" : "FREQ=YEARLY;INTERVAL=1",
+                        "every" : "1"
+                     },
+                     "source" : "js",
+                     "participants" : [],
+                     "id" : "233080733",
+                     "url" : "",
+                     "tags" : [],
+                     "created" : "2014-06-16T17:18:32Z"
+                  },
+                  {
+                     "url" : "",
+                     "participants" : [],
+                     "id" : "232345673",
+                     "source" : "js",
+                     "rrule" : {
+                        "$t" : "FREQ=MONTHLY;INTERVAL=1;BYDAY=2SU",
+                        "every" : "1"
+                     },
+                     "created" : "2014-06-06T16:43:01Z",
+                     "tags" : [],
+                     "task" : {
+                        "due" : "2017-06-11T04:00:00Z",
+                        "completed" : "",
+                        "priority" : "N",
+                        "has_due_time" : "0",
+                        "deleted" : "",
+                        "id" : "550369210",
+                        "estimate" : "",
+                        "added" : "2017-05-14T04:05:43Z",
+                        "postponed" : "0"
+                     },
+                     "notes" : [],
+                     "location_id" : "",
+                     "name" : "Call Kim",
+                     "modified" : "2017-05-19T19:51:24Z"
+                  },
+                  {
+                     "created" : "2015-12-11T11:53:23Z",
+                     "tags" : [],
+                     "participants" : [],
+                     "id" : "275751331",
+                     "url" : "",
+                     "source" : "js",
+                     "rrule" : {
+                        "every" : "1",
+                        "$t" : "FREQ=MONTHLY;INTERVAL=1;BYDAY=3SA;WKST=SU"
+                     },
+                     "task" : [
+                        {
+                           "due" : "2017-05-20T04:00:00Z",
+                           "completed" : "",
+                           "priority" : "N",
+                           "deleted" : "",
+                           "has_due_time" : "0",
+                           "id" : "471638656",
+                           "added" : "2015-12-11T11:53:23Z",
+                           "estimate" : "PT30M",
+                           "postponed" : "0"
+                        },
+                        {
+                           "due" : "2017-06-17T04:00:00Z",
+                           "priority" : "N",
+                           "completed" : "",
+                           "has_due_time" : "0",
+                           "deleted" : "",
+                           "added" : "2017-05-20T04:03:45Z",
+                           "estimate" : "",
+                           "id" : "551281407",
+                           "postponed" : "0"
+                        }
+                     ],
+                     "notes" : [],
+                     "location_id" : "",
+                     "modified" : "2017-05-22T16:01:22Z",
+                     "name" : "Get bookkeeping and filing up to date"
+                  },
+                  {
+                     "created" : "2014-07-15T15:48:17Z",
+                     "tags" : {
+                        "tag" : "lowes"
+                     },
+                     "url" : "http://bretwhissel.net/",
+                     "participants" : [],
+                     "id" : "235278283",
+                     "source" : "js",
+                     "rrule" : {
+                        "every" : "1",
+                        "$t" : "FREQ=WEEKLY;INTERVAL=2"
+                     },
+                     "notes" : {
+                        "note" : {
+                           "modified" : "2017-05-29T01:07:08Z",
+                           "created" : "2017-05-29T01:07:08Z",
+                           "$t" : "This is test one.",
+                           "title" : "",
+                           "id" : "59289611"
+                        }
+                     },
+                     "task" : [
+                        {
+                           "priority" : "N",
+                           "completed" : "",
+                           "due" : "2017-05-20T04:00:00Z",
+                           "postponed" : "0",
+                           "id" : "549177472",
+                           "added" : "2017-05-06T04:02:01Z",
+                           "estimate" : "20 minutes",
+                           "has_due_time" : "0",
+                           "deleted" : ""
+                        },
+                        {
+                           "postponed" : "0",
+                           "added" : "2017-05-20T04:03:45Z",
+                           "estimate" : "20 minutes",
+                           "id" : "551281408",
+                           "deleted" : "",
+                           "has_due_time" : "0",
+                           "priority" : "N",
+                           "completed" : "",
+                           "due" : "2017-06-03T04:00:00Z"
+                        }
+                     ],
+                     "location_id" : "",
+                     "modified" : "2017-05-29T17:15:35Z",
+                     "name" : "Vacuum bedrooms"
+                  },
+                  {
+                     "task" : {
+                        "priority" : "N",
+                        "completed" : "",
+                        "due" : "2017-06-15T04:00:00Z",
+                        "postponed" : "0",
+                        "id" : "502666486",
+                        "added" : "2016-06-15T04:14:26Z",
+                        "estimate" : "",
+                        "has_due_time" : "0",
+                        "deleted" : ""
+                     },
+                     "location_id" : "",
+                     "notes" : [],
+                     "name" : "IRS quarterly payment due",
+                     "modified" : "2016-09-18T02:59:51Z",
+                     "created" : "2014-06-16T17:16:43Z",
+                     "tags" : [],
+                     "source" : "js",
+                     "id" : "233080577",
+                     "participants" : [],
+                     "url" : "",
+                     "rrule" : {
+                        "$t" : "FREQ=YEARLY;INTERVAL=1",
+                        "every" : "1"
+                     }
+                  },
+                  {
+                     "name" : "Put out trash and recycling",
+                     "modified" : "2017-05-26T13:32:02Z",
+                     "task" : {
+                        "priority" : "N",
+                        "completed" : "",
+                        "due" : "2017-06-01T02:00:00Z",
+                        "estimate" : "",
+                        "added" : "2017-05-25T02:00:05Z",
+                        "id" : "552002332",
+                        "deleted" : "",
+                        "has_due_time" : "1",
+                        "postponed" : "0"
+                     },
+                     "notes" : [],
+                     "location_id" : "",
+                     "rrule" : {
+                        "$t" : "FREQ=WEEKLY;INTERVAL=1",
+                        "every" : "1"
+                     },
+                     "source" : "js",
+                     "url" : "",
+                     "participants" : [],
+                     "id" : "232344404",
+                     "tags" : [],
+                     "created" : "2014-06-06T16:21:01Z"
+                  }
+               ],
+               "id" : "36622570"
+            }
+         ]
+      },
+      "stat" : "ok"
+   }
+}

@@ -1,12 +1,33 @@
 #!/usr/bin/perl
 
 use Digest::MD5 qw(md5_hex);
+use JSON::XS;
 
 use REST::Client;
 use JSON;
 
 use strict;
 use warnings;
+
+my $jo = JSON::XS->new->utf8->pretty(1);
+
+my $tokenfile = "/home/bret/.rtmapitoken";
+my $authtoken = '';
+
+my $authserver = 'https://www.rememberthemilk.com';
+my $apiserver = 'https://api.rememberthemilk.com';
+my $timeout = 30;
+
+my $apclient = REST::Client->new({
+    host    => $apiserver,
+    timeout => $timeout });
+
+my $authclient = REST::Client->new({
+    host    => $authserver,
+    timeout => $timeout });
+
+my $jsonresp = '';
+my $frob = '';
 
 sub makeauthstr {
     my $href = shift;
@@ -22,6 +43,9 @@ sub makeauthstr {
 
     $parms{'perms'} = 'delete';
     $parms{'api_key'} = "$rtmapikey";
+    if (length($authtoken) > 0) {
+	$parms{'auth_token'} = $authtoken;
+    }
     if (exists($parms{'format'}) && ($parms{'format'} ne 'json')) {
 	delete $parms{'format'};
     } else {
@@ -80,64 +104,75 @@ sub check_return_error {
     exit $retval;
 }
 
-my $authserver = 'https://www.rememberthemilk.com';
-my $apiserver = 'https://api.rememberthemilk.com';
-my $timeout = 30;
+sub checktoken {
+    if (-f $tokenfile) {
+	$authtoken = `cat $tokenfile`;
+	chomp $authtoken;
+	return;
+    }
 
-my $apclient = '';
-my $authclient = '';
-my $jsonresp = '';
-my $frob = '';
+    $apclient->GET("/services/rest/\?" . makeauthstr({'method' => 'rtm.auth.getFrob'}));
+    $jsonresp = check_return_error($apclient);
 
-$apclient = REST::Client->new({
-    host    => $apiserver,
-    timeout => $timeout });
+    if (exists($jsonresp->{'rsp'}->{'frob'})) {
+	$frob = $jsonresp->{'rsp'}->{'frob'};
+	print "Got frob = $frob\n";
+    } else {
+	print "No frob response\n";
+	exit 1;
+    }
 
-$authclient = REST::Client->new({
-    host    => $authserver,
-    timeout => $timeout });
+    print "Opening browser for login...\n";
+    system("xdg-open", "$authserver/services/auth/\?" .
+	   makeauthstr({'frob' => $frob,
+			'perms' => 'delete',
+			'format' => 'xml' }));
 
-$apclient->GET("/services/rest/\?" . makeauthstr({'method' => 'rtm.auth.getFrob'}));
-$jsonresp = check_return_error($apclient);
+    print "\nPress <ENTER> once authorization is complete...\n";
+    my $waitent = <STDIN>;
+    $apclient->GET("/services/rest/\?" .
+		   makeauthstr({'method' => 'rtm.auth.getToken',
+				'perms' => 'delete',
+				'frob' => $frob}));
+    my $perms = '';
+    my $userid = '';
+    my $username = '';
+    my $fullname = '';
 
-if (exists($jsonresp->{'rsp'}->{'frob'})) {
-    $frob = $jsonresp->{'rsp'}->{'frob'};
-    print "Got frob = $frob\n";
-} else {
-    print "No frob response\n";
-    exit 1;
+    $jsonresp = check_return_error($apclient);
+    if (exists($jsonresp->{'rsp'}->{'auth'})) {
+	$authtoken = $jsonresp->{'rsp'}->{'auth'}->{'token'};
+	$perms = $jsonresp->{'rsp'}->{'auth'}->{'perms'};
+	$userid = $jsonresp->{'rsp'}->{'auth'}->{'user'}->{'id'};
+	$username = $jsonresp->{'rsp'}->{'auth'}->{'user'}->{'username'};
+	$fullname = $jsonresp->{'rsp'}->{'auth'}->{'user'}->{'fullname'};
+	print "token=$authtoken, perms=$perms, uid=$userid, uname=$username, fname=$fullname\n";
+    } else {
+	print "No Auth element returned\n";
+	exit 1;
+    }
+
+    open(OUTT, ">$tokenfile");
+    print OUTT "$authtoken\n";
+    close(OUTT);
 }
 
-print "Opening browser for login...\n";
-system("xdg-open", "$authserver/services/auth/\?" .
-    makeauthstr({'frob' => $frob,
-		 'perms' => 'delete',
-		 'format' => 'xml' }));
+checktoken();
 
-print "\nPress <ENTER> once authorization is complete...\n";
-my $waitent = <STDIN>;
-$apclient->GET("/services/rest/\?" .
-    makeauthstr({'method' => 'rtm.auth.getToken',
-		 'perms' => 'delete',
-		 'frob' => $frob}));
+my $output;
 
-my $token = '';
-my $perms = '';
-my $userid = '';
-my $username = '';
-my $fullname = '';
+#$apclient->GET("/services/rest\?" . makeauthstr({'method' => 'rtm.lists.getList'}));
+#$jsonresp = check_return_error($apclient);
 
+#$output = $jo->encode($jsonresp);
+#print $output;	       
+
+$apclient->GET("/services/rest\?" . makeauthstr({'method' => 'rtm.tasks.getList',
+						 'list_id' => '36622570',
+						 'filter' => 'status:incomplete',
+						}));
 $jsonresp = check_return_error($apclient);
-if (exists($jsonresp->{'rsp'}->{'auth'})) {
-    $token = $jsonresp->{'rsp'}->{'auth'}->{'token'};
-    $perms = $jsonresp->{'rsp'}->{'auth'}->{'perms'};
-    $userid = $jsonresp->{'rsp'}->{'auth'}->{'user'}->{'id'};
-    $username = $jsonresp->{'rsp'}->{'auth'}->{'user'}->{'username'};
-    $fullname = $jsonresp->{'rsp'}->{'auth'}->{'user'}->{'fullname'};
-    print "token=$token, perms=$perms, uid=$userid, uname=$username, fname=$fullname\n";
-} else {
-    print "No Auth element returned\n";
-    exit 1;
-}
 
+$output = $jo->encode($jsonresp);
+print $output;	       
 
