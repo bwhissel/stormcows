@@ -10,3 +10,7 @@ MIME security:
 
 Learn iCal/jCal semantics
 
+Sites:
+  https://dxr.mozilla.org/thunderbird/source?
+  https://dxr.mozilla.org/comm-central/source
+  
