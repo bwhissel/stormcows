@@ -8,7 +8,7 @@ Thunderbird Task Management
 
 *Infrastructure
 -- Sub-tasks!
--- Arbirtrary Ordering of tasks
+-- Arbitrary ordering of tasks
 -- Task dependencies
    -- Task B must wait until Task A is completed
       before work can start
@@ -64,5 +64,6 @@ Things to be done:
 2. Study ical-format output of Google tasks and RTM
 3. Dig into current Lightning infrastructure for iCal support
    -- https://github.com/mozilla-comm/ical.js (not active)
-   -- https://dxr.mozilla.org/thunderbird/source/calendar
+   -- https://dxr.mozilla.org/thunderbird/source/calendar (older builds?)
+   -- https://dxr.mozilla.org/comm-central/source (current builds?)
 4. Install Javascript development environments

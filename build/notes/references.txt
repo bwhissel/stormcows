@@ -11,6 +11,7 @@ MIME security:
 Learn iCal/jCal semantics
 
 Sites:
-  https://dxr.mozilla.org/thunderbird/source?
-  https://dxr.mozilla.org/comm-central/source
-  
+  https://dxr.mozilla.org/thunderbird/source (older builds?)
+  https://dxr.mozilla.org/comm-central/source (current builds?)
+  https://developer.mozilla.org/en-US/Add-ons/Thunderbird/Building_a_Thunderbird_extension
+  https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL
