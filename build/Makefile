@@ -1,7 +1,7 @@
 
 .PHONY: all clean
 
-all: stormcows-bret.xpi
+all: stormcows-fork.xpi
 
 SDIR = ..
 
@@ -17,8 +17,8 @@ XPISRC = \
 	$(SDIR)/install.rdf \
 	$(SDIR)/README
 
-stormcows-bret.xpi: $(XPISRC)
-	(cd $(SDIR); zip build/stormcows-bret.xpi $(XPISRC:$(SDIR)/%=%))
+stormcows-fork.xpi: $(XPISRC)
+	(cd $(SDIR); zip build/stormcows-fork.xpi $(XPISRC:$(SDIR)/%=%))
 
 clean:
 	find $(SDIR) -name '*~' -delete

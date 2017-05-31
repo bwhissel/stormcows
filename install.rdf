@@ -9,8 +9,8 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>{62227ad7-1b03-4ada-b640-8d794157cda3}</em:id>
     <em:name>StormCows</em:name>
-    <em:description>Remember The Milk integration (vBret)</em:description>
-    <em:version>0.4.1-bret</em:version>
+    <em:description>Remember The Milk integration (Fork)</em:description>
+    <em:version>0.4.1-fork-1</em:version>
     <em:creator>moldybeats</em:creator>
     <em:type>2</em:type>
 
