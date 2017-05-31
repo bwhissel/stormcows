@@ -3,6 +3,16 @@ goal is to make the plugin compatible with recent verisons of
 Thunderbird/Lightning starting with v52.1.1/5.4.1.1. Then we'll
 make further enhancements.
 
+In the releases directory, stormcows-0.4.1-fork1.xpi has a fix
+that works with Thunderbird v52.1.1/Lightning v5.4.1.1. It also
+maps RTM tags to Lightning task categories, and RTM Notes appear
+under task descriptions. This is a one-way mapping: changes to
+description or categories do not get pushed back to RTM yet.
+
+*USE AT YOUR OWN RISK!*
+
+OLDER INFO FROM ORIGINAL AUTHOR MOLDYBEATS:
+
 **DEPRECATED**
 After a long period of putting off improvements to StormCows, it's
 time for me to call it quits on this project. Unfortunately I haven't
